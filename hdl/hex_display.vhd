@@ -46,7 +46,7 @@ entity hex_display is
 end entity hex_display;
 
 architecture rtl of hex_display is
--- Grafisk bild och segmentnummer på 7-segment displayen på DE10-Lite kortet:
+-- Graphical representation of segment display on DE10-Lite:
 --
 --     0
 --    ___
@@ -57,9 +57,7 @@ architecture rtl of hex_display is
 --    
 --     3
 --
--- 11111111 <-- lek mall
---
--- En etta släcker segmentet en nolla tänder det
+-- display segments are active low.
 constant ZERO   : std_logic_vector(7 downto 0) := "11000000";
 constant ONE    : std_logic_vector(7 downto 0) := "11111001";
 constant TWO    : std_logic_vector(7 downto 0) := "10100100";
