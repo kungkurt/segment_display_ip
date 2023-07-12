@@ -15,14 +15,22 @@
 --
 -- Description:
 ---------------
---  this is a new file..
+--  IP component for controlling all segment displays.
 --
 -- In_signals:
 --------------
---  clock  : std_logic                    -- System clock XX MHz
+--  clock   : std_logic                    -- System clock XX MHz
+--  reset_n : std_logic                    -- Reset signal, active low
+--  cs_n    : std_logic                    -- Chip select, active low
+--  addr    : std_logic_vector(2..0)       -- address
+--  write_n : std_logic                    -- write pulse, active low
+--  read_n  : std_logic                    -- read pulse, active low
+--  din     : std_logic_vector(31..0)      -- data in
 --
 -- Out_signals:
 ---------------
+--  dout         : std_logic_vector(31..0) -- data out
+--  hex_displays : std_logic_vector(47..0) -- segment displays
 --
 
 library ieee;
@@ -43,7 +51,6 @@ entity hex_display_ip is
 end entity hex_display_ip;
 
 architecture rtl of hex_display_ip is
--- constants
 -- signals
 signal ctrl0,ctrl1,ctrl2,ctrl3,ctrl4,ctrl5 : std_logic_vector(4 downto 0);
 signal data0,data1,data2,data3,data4,data5 : std_logic_vector(7 downto 0);
